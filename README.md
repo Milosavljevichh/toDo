@@ -20,3 +20,6 @@
     -on click,expand a single to-do to view/edit it's details
     -delete a to-do
 
+6. Aside will have filter buttons for:
+    -priority
+    -due date
