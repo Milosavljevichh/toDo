@@ -10,7 +10,7 @@ export default function generateHeader() {
 
     let appTitle = document.createElement('h1');
 
-    let tempIco = document.createElement('div');
+    let addBtn = document.createElement('button');
     let tempIco2 = document.createElement('div');
 
     leftSide.id = 'left-header';
@@ -22,14 +22,15 @@ export default function generateHeader() {
 
     appTitle.innerHTML = 'App name';
 
-    tempIco.id = 'ico'; 
+    addBtn.id = 'addBtn'; 
+    addBtn.innerHTML = '+';
     tempIco2.id = 'ico'; 
 
     logo.appendChild(logoImg);
 
     leftSide.append(logo, appTitle);
 
-    rightSide.append(tempIco, tempIco2);
+    rightSide.append(addBtn, tempIco2);
 
     header.append(leftSide, rightSide);
     wrapper.appendChild(header);

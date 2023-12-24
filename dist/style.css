@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+:root {
+    --low-priority-bg-color: green solid 8px;
+}
+
 body {
     background-color:whitesmoke;
 }
@@ -59,6 +63,15 @@ header {
 
 #right-header {
     justify-content: flex-end;
+}
+
+#addBtn {
+    width: 48px;
+    height: 48px;
+    background-color: cadetblue;
+    color: white;
+    font-size: 2.4rem;
+    border-radius: 50% 50% 0 0;
 }
 
 #left-header img {
@@ -137,14 +150,14 @@ aside {
     }
 }
 
-/* .category {
-    border: seagreen solid 3px;
-    padding: 15px;
-    border-radius: 15px;
-} */
-
 .category h2{
     margin-left: 20px;
+}
+
+.categoryTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* CARDS */
@@ -156,9 +169,10 @@ aside {
     flex-direction: column;
     gap: 12px;
     border: solid 3px cadetblue;
+    border-left: var(--low-priority-bg-color);
     border-radius: 15px;
     padding: 26px 20px;
-    width: 99%;
+    width: 100%;
 }
 
 .todo-footer {
