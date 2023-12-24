@@ -4,6 +4,9 @@
 }
 
 :root {
+    /* wrapper ::before display */
+    --wrapper-display: none;
+    /* priority colors */
     --low-priority-bg-color: green solid 8px;
 }
 
@@ -187,3 +190,55 @@ aside {
     align-self: flex-end;
 }
 
+/* PROMPT */
+#prompt {
+    width: 35%;
+    min-height: 35%;
+    background-color: darkgray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    border: solid 4px black;
+    padding: 20px 30px;
+}
+
+#prompt label {
+    font-size: 1.65rem;
+}
+
+#prompt input[type="text"], #prompt select, #prompt input[type="date"] {
+    border-radius: 10px;
+    height: 34px;
+    width: 100%;
+    text-indent: 20px;
+}
+#prompt select, #prompt input[type="date"] {
+    text-align: center;
+    text-indent: 0;
+    width: 50%;
+}
+
+#descriptionInput {
+    height: 60px;
+}
+
+form div {
+    margin: 12px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#wrapper::before {
+content: "";
+  display: var(--wrapper-display);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}

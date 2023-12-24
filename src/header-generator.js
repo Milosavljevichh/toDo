@@ -1,3 +1,5 @@
+import generatePrompt from "./toDo-creation-prompt";
+
 export default function generateHeader() {
     let wrapper = document.getElementById('wrapper');
 
@@ -25,6 +27,12 @@ export default function generateHeader() {
     addBtn.id = 'addBtn'; 
     addBtn.innerHTML = '+';
     tempIco2.id = 'ico'; 
+
+    addBtn.addEventListener('click', () => {
+        let root = document.querySelector(':root');
+        root.style.setProperty('--wrapper-display', 'block');
+        generatePrompt();
+    });
 
     logo.appendChild(logoImg);
 
