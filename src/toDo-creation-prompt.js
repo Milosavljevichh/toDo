@@ -101,7 +101,7 @@ export default function generatePrompt() {
         if (titleValue.length === 0 || descriptionValue.length === 0) {
             promptValidation(titleValue, descriptionValue, titleInput, descriptionInput);
         } else {
-            createCategory(titleValue, descriptionValue, titleInput, descriptionInput, categoryValue)
+            createCategory(titleValue, descriptionValue, dueDateValue, priorityValue, categoryValue)
             //removing background overlay
             let root = document.querySelector(':root');
             root.style.setProperty('--wrapper-display', 'none');

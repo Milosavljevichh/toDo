@@ -112,7 +112,7 @@ aside {
     width: 32px;
 }
 
-@media screen and (max-width:880px) {
+@media screen and (max-width:991px) {
     .menu-item h3{
         display: none;
     }
@@ -147,7 +147,7 @@ aside {
     gap: 25px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 921px) {
     #display {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
