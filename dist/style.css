@@ -204,8 +204,8 @@ aside {
     padding: 20px 30px;
 }
 
-#prompt label {
-    font-size: 1.65rem;
+#prompt p {
+    font-size: 1.45rem;
 }
 
 #prompt input[type="text"], #prompt select, #prompt input[type="date"] {
@@ -213,6 +213,7 @@ aside {
     height: 34px;
     width: 100%;
     text-indent: 20px;
+    font-size: 1.05rem;
 }
 #prompt select, #prompt input[type="date"] {
     text-align: center;
@@ -224,12 +225,28 @@ aside {
     height: 60px;
 }
 
-form div {
+form div{
     margin: 12px 0;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+form div:last-child{
+    margin-top: 46px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form button {
+    display: inline;
+    align-items: center;
+    width: 20%;
+    height: 30px;
+    border-radius: 10px;
 }
 
 #wrapper::before {
@@ -242,3 +259,4 @@ content: "";
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
+

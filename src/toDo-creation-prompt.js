@@ -1,3 +1,6 @@
+import promptValidation from "./promptValidation";
+import createCategory from "./category-generator";
+
 export default function generatePrompt() {
     let wrapper = document.getElementById('wrapper');
 
@@ -8,7 +11,7 @@ export default function generatePrompt() {
     // creating inputs and labels
     // title
     let titleDiv = document.createElement('div');
-    let titleLabel = document.createElement('label');
+    let titleLabel = document.createElement('p');
     let titleInput = document.createElement('input');
 
     titleInput.type = 'text';
@@ -17,13 +20,12 @@ export default function generatePrompt() {
     titleInput.placeholder = 'Input title...'
 
     titleLabel.innerHTML = "Task's title:";
-    titleLabel.setAttribute('titleInput', 'for');
     //appending title
     titleDiv.append(titleLabel, titleInput);
     
     //description
     let descriptionDiv = document.createElement('div');
-    let descriptionLabel = document.createElement('label');
+    let descriptionLabel = document.createElement('p');
     let descriptionInput = document.createElement('input');
     
     descriptionInput.type = 'text';
@@ -32,26 +34,35 @@ export default function generatePrompt() {
     descriptionInput.placeholder = 'Input description...'
     
     descriptionLabel.innerHTML = "Task's description:";
-    descriptionLabel.setAttribute('descriptionInput', 'for');
     //appending description
     descriptionDiv.append(descriptionLabel, descriptionInput);
     
     //due date
     let dueDatenDiv = document.createElement('div');
-    let dueDateLabel = document.createElement('label');
+    let dueDateLabel = document.createElement('p');
     let dueDateInput = document.createElement('input');
     
     dueDateInput.type = 'date';
     dueDateInput.id = 'dueDate';
     dueDateInput.name = 'dueDate';
 
-    dueDateLabel.innerHTML = "Task's due date:"
-    dueDateLabel.setAttribute('descriptionInput', 'for');
-
+    dueDateLabel.innerHTML = "Task's due date:";
     dueDatenDiv.append(dueDateLabel, dueDateInput);
     //priority
+    let categoryDiv = document.createElement('div');
+    let categoryLabel = document.createElement('p');
+    let categoryInput = document.createElement('input');
+
+    categoryInput.id = 'categorySelect';
+    categoryInput.placeholder = 'Category name';
+    categoryInput.type = 'text';
+
+    categoryLabel.innerHTML = "Input category:";
+
+    categoryDiv.append(categoryLabel, categoryInput);
+    //category
     let priorityDiv = document.createElement('div');
-    let priorityLabel = document.createElement('label');
+    let priorityLabel = document.createElement('p');
     let prioritySelect = document.createElement('select');
 
     prioritySelect.id = 'prioritySelect';
@@ -70,22 +81,46 @@ export default function generatePrompt() {
     prioritySelect.add(high);
 
     priorityLabel.innerHTML = "Select priority:";
-    priorityLabel.setAttribute('prioritySelect', 'for');
 
-    priorityDiv.append(priorityLabel, prioritySelect)
-
+    priorityDiv.append(priorityLabel, prioritySelect);
     //button
+    let btnDiv = document.createElement('div');
+
     let confirm = document.createElement('button');
     confirm.id = 'confirmBtn';
     confirm.innerHTML = "Create";
+    confirm.type = 'button';
     confirm.addEventListener('click', () => {
+        //saving form data
+        let titleValue = titleInput.value;
+        let descriptionValue = descriptionInput.value;
+        let dueDateValue = dueDateInput.value;
+        let priorityValue = prioritySelect.value;
+        if (titleValue.length === 0 || descriptionValue.length === 0) {
+            promptValidation(titleValue, descriptionValue, titleInput, descriptionInput);
+        } else {
+            //removing background overlay
+            let root = document.querySelector(':root');
+            root.style.setProperty('--wrapper-display', 'none');
+            //passing args to the create todo func
+            createCategory(titleValue, descriptionValue, dueDateValue, priorityValue);
+            wrapper.removeChild(prompt);
+    }});
+
+     let cancel = document.createElement('button');
+    cancel.id = 'cancelBtn';
+    cancel.type = 'button';
+    cancel.innerHTML = "Cancel";
+    cancel.addEventListener('click', () => {
         let root = document.querySelector(':root');
         root.style.setProperty('--wrapper-display', 'none');
         wrapper.removeChild(prompt);
     });
 
+    btnDiv.append(cancel,confirm);
+
     //appending to form
-    form.append(titleDiv, descriptionDiv, dueDatenDiv, priorityDiv, confirm);
+    form.append(titleDiv, descriptionDiv, categoryDiv, dueDatenDiv, priorityDiv, btnDiv);
 
     prompt.appendChild(form);
     wrapper.appendChild(prompt);

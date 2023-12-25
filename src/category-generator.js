@@ -1,4 +1,4 @@
-export default function createCategory() {
+export default function createCategory(todoTitle, todoDescription, todoDueDate, todoPriority) {
     let display = document.getElementById('display');
 
     let category = document.createElement('div');
