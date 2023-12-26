@@ -86,10 +86,18 @@ header {
 #addBtn {
     width: 48px;
     height: 48px;
-    background-color: cadetblue;
-    color: white;
-    font-size: 2.4rem;
-    border-radius: 50% 50% 0 0;
+    background-color: none;
+    border: none;
+    border-radius: 50%;
+    margin-right: 5%;
+}
+
+#addBtn img {
+    width: 48px;
+}
+
+#addBtn:hover {
+    cursor: pointer;
 }
 
 #left-header img {
@@ -109,7 +117,7 @@ header h3 {
     font-weight: 300;
 }
 
-@media screen and (max-width:620px) {
+@media screen and (max-width:645px) {
     header h1 {
         font-size: 1.4rem;
     }
@@ -120,16 +128,28 @@ header h3 {
     #addBtn {
         width: 34px;
         height: 34px;
-        font-size: 1.5rem;
+        margin-right: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     #right-header {
-        width: 30%;
+        width: 10%;
         gap: 15px;
     }
 
     #left-header {
-        width: 70%;
+        width: 89%;
+    }
+}
+
+@media screen and (max-width:300px) {
+    header h1 {
+        font-size: 1.1rem;
+    }
+    header h3 {
+        font-size: 0.6rem;
     }
 }
 /* ASIDE */
@@ -165,6 +185,12 @@ aside {
     width: 90%;
     text-align: center;
     color: white;
+    transition: all 0.5s;
+}
+
+.menu-item:hover {
+    cursor: pointer;
+    background-color: #689cdf;
 }
 
 .menu-item img {
@@ -220,7 +246,7 @@ aside {
 
 @media screen and (min-width: 921px) {
     #display {
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 48%));
     }
 }
 
@@ -241,6 +267,7 @@ aside {
     margin: 10px 0;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 12px;
     border-radius: 15px;
     padding: 26px 20px;
@@ -261,18 +288,32 @@ aside {
     align-self: flex-end;
 }
 
+#description, #title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /* PROMPT */
 #prompt {
-    width: 35%;
-    min-height: 35%;
-    background-color: darkgray;
+    width: 50vw;
+    min-height: 55vh;
+    background-color: #B4D4FF;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 20px;
-    border: solid 4px black;
+    border: solid 4px #176B87;
     padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media screen and (max-width:1000px) {
+    #prompt {
+        width: 75vw;
+    }
 }
 
 #prompt p {
@@ -285,11 +326,34 @@ aside {
     width: 100%;
     text-indent: 20px;
     font-size: 1.05rem;
+    color: #176B87;
+    background-color: #EEF5FF;
+    border: transparent 3px solid;
 }
+
+form input:focus, form select:focus { 
+    outline: #176B87 3px solid;
+}
+
+.warning{
+    border: red 2px solid !important;
+}
+
+.warning::placeholder {
+    color: red;
+    font-weight: 600;
+}
+
 #prompt select, #prompt input[type="date"] {
     text-align: center;
     text-indent: 0;
     width: 50%;
+}
+
+@media screen and (max-width:950px) {
+    #prompt input[type="date"], #prompt select {
+        width: 100%;
+    }
 }
 
 #descriptionInput {

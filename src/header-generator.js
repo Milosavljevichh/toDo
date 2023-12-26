@@ -13,7 +13,7 @@ export default function generateHeader() {
     let appTitle = document.createElement('h1');
 
     let addBtn = document.createElement('button');
-    let tempIco2 = document.createElement('div');
+    let addIco = document.createElement('img');
 
     let smallTitle = document.createElement('h3');
 
@@ -30,8 +30,8 @@ export default function generateHeader() {
     smallTitle.innerHTML = 'Blow away all your tasks';
 
     addBtn.id = 'addBtn'; 
-    addBtn.innerHTML = '+';
-    tempIco2.id = 'ico'; 
+
+    addIco.src = 'imgs/addIcon.png';
 
     addBtn.addEventListener('click', () => {
         let root = document.querySelector(':root');
@@ -45,7 +45,9 @@ export default function generateHeader() {
 
     leftSide.append(logo, titleDiv);
 
-    rightSide.append(addBtn, tempIco2);
+    addBtn.appendChild(addIco);
+
+    rightSide.append(addBtn);
 
     header.append(leftSide, rightSide);
     wrapper.appendChild(header);

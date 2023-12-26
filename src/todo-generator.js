@@ -9,6 +9,10 @@ export default function createTodo(title, description, dueDate, priority) {
     let footer = document.createElement('div');
     footer.classList.add('todo-footer');
 
+    let todoDescription = document.createElement('p');
+    todoDescription.innerHTML = description;
+    todoDescription.id = 'description';
+
     let displayDate = document.createElement('p');
     displayDate.innerHTML = dueDate;
 
@@ -22,7 +26,7 @@ export default function createTodo(title, description, dueDate, priority) {
 
     iconContainer.append(tempIco, tempIco2);
     footer.append(displayDate, iconContainer);
-    article.append(todoTitle, footer);
+    article.append(todoTitle, todoDescription, footer);
 
     return article;
 };

@@ -18,7 +18,7 @@ export default function generatePrompt() {
     titleInput.id = 'titleInput';
     titleInput.name = 'titleInput';
     titleInput.placeholder = 'Input title...'
-
+    titleInput.maxLength = 40;
     titleLabel.innerHTML = "Task's title:";
     //appending title
     titleDiv.append(titleLabel, titleInput);
@@ -32,8 +32,8 @@ export default function generatePrompt() {
     descriptionInput.id = 'descriptionInput';
     descriptionInput.name = 'descriptionInput';
     descriptionInput.placeholder = 'Input description...'
-    
-    descriptionLabel.innerHTML = "Task's description:";
+    descriptionInput.maxLength = 60;
+    descriptionLabel.innerHTML = "Short description:";
     //appending description
     descriptionDiv.append(descriptionLabel, descriptionInput);
     
@@ -46,7 +46,7 @@ export default function generatePrompt() {
     dueDateInput.id = 'dueDate';
     dueDateInput.name = 'dueDate';
 
-    dueDateLabel.innerHTML = "Task's due date:";
+    dueDateLabel.innerHTML = "Due date:";
     dueDatenDiv.append(dueDateLabel, dueDateInput);
     //priority
     let categoryDiv = document.createElement('div');
