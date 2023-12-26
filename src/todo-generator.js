@@ -1,6 +1,7 @@
 export default function createTodo(title, description, dueDate, priority) {
     let article = document.createElement('article');
     article.classList.add('todo');
+    article.classList.add(priority);
 
     let todoTitle = document.createElement('h3');
     todoTitle.innerHTML = title;

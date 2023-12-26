@@ -43,7 +43,7 @@ export default function generateAside() {
 
     noPriorityTitle.innerHTML = 'None';
     lowPriorityTitle.innerHTML = 'Low';
-    mediumPriorityTitle.innerHTML = 'Medium';
+    mediumPriorityTitle.innerHTML = 'Mid';
     highPriorityTitle.innerHTML = 'High';
 
     //appending children

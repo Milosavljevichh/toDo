@@ -15,6 +15,10 @@ export default function generateHeader() {
     let addBtn = document.createElement('button');
     let tempIco2 = document.createElement('div');
 
+    let smallTitle = document.createElement('h3');
+
+    let titleDiv = document.createElement('div');
+
     leftSide.id = 'left-header';
     rightSide.id = 'right-header';
 
@@ -22,7 +26,8 @@ export default function generateHeader() {
     logoImg.src = "imgs/to-do-list.png";
     logoImg.alt = 'logo';
 
-    appTitle.innerHTML = 'App name';
+    appTitle.innerHTML = 'Cyclone check';
+    smallTitle.innerHTML = 'Blow away all your tasks';
 
     addBtn.id = 'addBtn'; 
     addBtn.innerHTML = '+';
@@ -36,7 +41,9 @@ export default function generateHeader() {
 
     logo.appendChild(logoImg);
 
-    leftSide.append(logo, appTitle);
+    titleDiv.append(appTitle,  smallTitle);
+
+    leftSide.append(logo, titleDiv);
 
     rightSide.append(addBtn, tempIco2);
 
