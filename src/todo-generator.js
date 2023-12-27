@@ -1,22 +1,39 @@
 import completeTask from "./completeTask";
 
-export default function createTodo(title, description, dueDate, priority) {
+export default function createTodo(classTitle, classDesc, classDate, classPriority, categoryTitle) {
+    
+    class Todo {
+        constructor (title, description, dueDate, priority, inCategory) {
+            this.title = title;
+            this.description = description;
+            this.dueDate = dueDate;
+            this.priority = priority;
+            this.inCategory = inCategory;
+        }
+    }
+
+    const newTodo = new Todo(classTitle, classDesc, classDate, classPriority, categoryTitle);
+
+    localStorage.setItem(classTitle, JSON.stringify(newTodo));
+
+
+    //DOM manipulation
     let article = document.createElement('article');
     article.classList.add('todo');
-    article.classList.add(priority);
+    article.classList.add(newTodo.priority);
 
     let todoTitle = document.createElement('h3');
-    todoTitle.innerHTML = title;
+    todoTitle.innerHTML = newTodo.title;
     todoTitle.id = 'title';
     let footer = document.createElement('div');
     footer.classList.add('todo-footer');
 
     let todoDescription = document.createElement('p');
-    todoDescription.innerHTML = description;
+    todoDescription.innerHTML = newTodo.description;
     todoDescription.id = 'description';
 
     let displayDate = document.createElement('p');
-    displayDate.innerHTML = dueDate;
+    displayDate.innerHTML = newTodo.dueDate;
 
     let iconContainer = document.createElement('div');
     iconContainer.classList.add('todo-icons');

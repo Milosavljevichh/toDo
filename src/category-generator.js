@@ -5,8 +5,9 @@ export default function createCategory(todoTitle, todoDescription, todoDueDate, 
 
     //declaring variables
     let display = document.getElementById('display');
-    let todo = createTodo(todoTitle, todoDescription, todoDueDate, todoPriority);
+    let todo = createTodo(todoTitle, todoDescription, todoDueDate, todoPriority, categoryTitle);
     let existingCategory = document.getElementById(categoryTitle);
+
 
     //if display has no categories, create an 'overall' category
     if (display.childElementCount === 0) {
@@ -31,6 +32,9 @@ export default function createCategory(todoTitle, todoDescription, todoDueDate, 
             let title = document.createElement('h2');
             title.innerHTML = categoryTitle;
 
+            
+            // localStorage.setItem('categoris', categories);
+
             //if no category is chosen, assign to-do to 'overall' category
             if (categoryTitle.length === 0) {
                 if (document.getElementById('overall')) {
@@ -46,7 +50,9 @@ export default function createCategory(todoTitle, todoDescription, todoDueDate, 
                 }
                 category.appendChild(title);
                 category.appendChild(todo);
+                localStorage.setItem('_category_'+title.innerHTML,  JSON.stringify(title.innerHTML));
                 display.appendChild(category);
             }
         }
-    }};
+    }
+};

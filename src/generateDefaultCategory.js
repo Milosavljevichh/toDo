@@ -1,5 +1,13 @@
+import loadSavedCategories from "./loadSavedCategories";
+
 export default function createDefaultCat(todo) {
     let display = document.getElementById('display');
+
+    Object.keys(localStorage).forEach(item => {
+        if (item.includes('_category_')) {
+            loadSavedCategories(JSON.parse(localStorage.getItem(item)));
+        }
+    });
     
     if (display.childElementCount > 0) {
         let category = document.createElement('div');
@@ -7,7 +15,9 @@ export default function createDefaultCat(todo) {
         let title = document.createElement('h2');
         title.innerHTML = 'Overall';
         category.appendChild(title);
-        category.appendChild(todo);
+        if (todo) {
+            category.appendChild(todo);
+        }
         display.appendChild(category);
     } else {
         let category = document.createElement('div');
