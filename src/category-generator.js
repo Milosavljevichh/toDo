@@ -25,6 +25,11 @@ export default function createCategory(todoTitle, todoDescription, todoDueDate, 
         //it to the display element
         } else {
 
+            let overall = document.getElementById('overall');
+            if (overall.childElementCount === 1) {
+                overall.remove();
+            }
+
             let category = document.createElement('div');
             category.id = categoryTitle;
 
