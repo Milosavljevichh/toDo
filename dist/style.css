@@ -17,6 +17,8 @@
     --low-priority-bg-color: #79AC78 solid 8px;
     --medium-priority-bg-color: #EEC759 solid 8px;
     --high-priority-bg-color: #CD8D7A solid 8px;
+    /* anim */
+    --completed: completedFly 1s;
 }
 
 aside, #display {
@@ -274,12 +276,13 @@ aside {
     width: 100%;
     height: 160px;
     background-color: #B4D4FF;
+    z-index: 2;
 }
 
 .todo-footer {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .todo-icons {
@@ -293,6 +296,22 @@ aside {
     text-overflow: ellipsis;
 }
 
+#editBtn, #completeBtn {
+    background-color: #86B6F6;
+    padding: 5px;
+    border-radius: 50%;
+    border: none;
+    transition: all 0.5s;
+}
+
+#editBtn:hover, #completeBtn:hover {
+    background-color: #689cdf;
+    cursor: pointer;
+}
+
+#editBtn img, #completeBtn img {
+    width: 36px;
+}
 /* PROMPT */
 #prompt {
     width: 50vw;
@@ -384,6 +403,42 @@ form button {
     border-radius: 10px;
 }
 
+#cancelBtn {
+    background-color: #CD8D7A;
+    border: #b06b55 4px solid;
+    color: white;
+    font-weight: 500;
+    border-top: none;
+    border-right: none;
+    transition: all 0.4s;
+}
+
+#confirmBtn {
+    background-color: #79AC78;
+    border: #609c5f 4px solid;
+    color: white;
+    font-weight: 500;
+    border-top: none;
+    border-right: none;
+    transition: all 0.4s;
+}
+
+#confirmBtn:hover{
+    background-color: #609c5f;
+    border: #4a8449 4px solid;
+    border-top: none;
+    border-right: none;
+    cursor: pointer;
+}
+
+#cancelBtn:hover {
+    background-color: #b06b55;
+    border: #975038 4px solid;
+    border-top: none;
+    border-right: none;
+    cursor: pointer;
+}
+
 #wrapper::before {
 content: "";
   display: var(--wrapper-display);
@@ -411,4 +466,21 @@ content: "";
 
 .High {
     border-left: var(--high-priority-bg-color);
+}
+
+/* /animation */
+
+@keyframes completedFly {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-300%);
+    }
+}
+
+.completed {
+    animation: var(--completed);
+    z-index: -100;
 }

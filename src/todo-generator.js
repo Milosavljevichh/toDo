@@ -1,3 +1,5 @@
+import completeTask from "./completeTask";
+
 export default function createTodo(title, description, dueDate, priority) {
     let article = document.createElement('article');
     article.classList.add('todo');
@@ -19,12 +21,25 @@ export default function createTodo(title, description, dueDate, priority) {
     let iconContainer = document.createElement('div');
     iconContainer.classList.add('todo-icons');
 
-    let tempIco = document.createElement('div');
-    let tempIco2 = document.createElement('div');
-    tempIco.id = 'ico';
-    tempIco2.id = 'ico';
+    let completeBtn = document.createElement('button');
+    let editBtn = document.createElement('button');
 
-    iconContainer.append(tempIco, tempIco2);
+    editBtn.id = 'editBtn';
+    completeBtn.id = 'completeBtn';
+
+    let completeIco = document.createElement('img');
+    completeIco.src = 'imgs/complete.png';
+
+    let editIco = document.createElement('img');
+    editIco.src = 'imgs/edit.png';
+
+    completeBtn.addEventListener('click', ()=>{
+        completeTask(article);
+    })
+
+    editBtn.appendChild(editIco);
+    completeBtn.appendChild(completeIco);
+    iconContainer.append(completeBtn, editBtn);
     footer.append(displayDate, iconContainer);
     article.append(todoTitle, todoDescription, footer);
 

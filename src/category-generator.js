@@ -1,4 +1,5 @@
 import createTodo from "./todo-generator";
+import createDefaultCat from "./generateDefaultCategory";
 
 export default function createCategory(todoTitle, todoDescription, todoDueDate, todoPriority, categoryTitle) {
 
@@ -10,12 +11,7 @@ export default function createCategory(todoTitle, todoDescription, todoDueDate, 
     //if display has no categories, create an 'overall' category
     if (display.childElementCount === 0) {
 
-        let category = document.createElement('div');
-        category.id = 'overall';
-        let title = document.createElement('h2');
-        title.innerHTML = 'Overall';
-        category.appendChild(title);
-        display.appendChild(category);
+        createDefaultCat();
 
     //if display has an 'overall' category, handle creating new category
     } else if (display.childElementCount > 0) {
