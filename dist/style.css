@@ -296,6 +296,15 @@ aside {
     text-overflow: ellipsis;
 }
 
+@media screen and (max-width:481px) {
+    #title {
+        font-size: 1.05rem;
+    }
+    #description {
+        font-size: 0.85rem;
+    }
+}
+
 #editBtn, #completeBtn {
     background-color: #86B6F6;
     padding: 5px;
@@ -356,6 +365,11 @@ form input:focus, form select:focus {
 
 .warning{
     border: red 2px solid !important;
+}
+
+.warning-label{
+    color: red;
+    font-weight: 600;
 }
 
 .warning::placeholder {
@@ -473,14 +487,16 @@ content: "";
 @keyframes completedFly {
     0% {
         transform: translateX(0%);
+        opacity: 1;
     }
 
     100% {
-        transform: translateX(-300%);
+        transform: translateX(-100%);
+        opacity: 0;
     }
 }
 
 .completed {
     animation: var(--completed);
-    z-index: -100;
+    z-index: -10 !important;
 }

@@ -33,12 +33,15 @@ export default function createCategory(todoTitle, todoDescription, todoDueDate, 
 
             //if no category is chosen, assign to-do to 'overall' category
             if (categoryTitle.length === 0) {
-                let overall = document.getElementById('overall');
-                overall.appendChild(todo);
-            
+                if (document.getElementById('overall')) {
+                    let overall = document.getElementById('overall');
+                    overall.appendChild(todo);
+                } else {
+                    createDefaultCat(todo);
+                }
             } else {
                 let overall = document.getElementById('overall');
-                if (overall.childElementCount === 1) {
+                if (overall && overall.childElementCount === 1) {
                     overall.remove();
                 }
                 category.appendChild(title);

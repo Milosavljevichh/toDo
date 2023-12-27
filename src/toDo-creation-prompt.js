@@ -1,5 +1,6 @@
 import promptValidation from "./promptValidation";
 import createCategory from "./category-generator";
+import { isPast } from "date-fns";
 
 export default function generatePrompt() {
     let wrapper = document.getElementById('wrapper');
@@ -98,8 +99,8 @@ export default function generatePrompt() {
         let priorityValue = prioritySelect.value;
         let categoryValue = categoryInput.value;
         //logic
-        if (titleValue.length === 0 || descriptionValue.length === 0) {
-            promptValidation(titleValue, descriptionValue, titleInput, descriptionInput);
+        if (titleValue.length === 0 || descriptionValue.length === 0 || isPast(dueDateInput.value)) {
+            promptValidation(titleValue, descriptionValue, titleInput, descriptionInput, dueDateInput, dueDateLabel);
         } else {
             createCategory(titleValue, descriptionValue, dueDateValue, priorityValue, categoryValue)
             //removing background overlay
