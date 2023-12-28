@@ -49,8 +49,8 @@ export default function createCategory(todoTitle, todoDescription, todoDueDate, 
                     overall.remove();
                 }
                 category.appendChild(title);
-                category.appendChild(todo);
                 localStorage.setItem('_category_'+title.innerHTML,  JSON.stringify(title.innerHTML));
+                category.appendChild(todo);
                 display.appendChild(category);
             }
         }

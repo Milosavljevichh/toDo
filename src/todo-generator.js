@@ -11,10 +11,18 @@ export default function createTodo(classTitle, classDesc, classDate, classPriori
             this.inCategory = inCategory;
         }
     }
+    
+    let nonEmptyCategory = '';
 
-    const newTodo = new Todo(classTitle, classDesc, classDate, classPriority, categoryTitle);
+    if (categoryTitle === '') {
+        nonEmptyCategory = 'overall';
+    } else {
+        nonEmptyCategory = categoryTitle;
+    }
 
-    localStorage.setItem(classTitle, JSON.stringify(newTodo));
+    const newTodo = new Todo(classTitle, classDesc, classDate, classPriority, nonEmptyCategory);
+
+    localStorage.setItem('_todo_'+classTitle, JSON.stringify(newTodo));
 
 
     //DOM manipulation
