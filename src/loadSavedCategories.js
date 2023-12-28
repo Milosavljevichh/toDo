@@ -1,19 +1,13 @@
+import generateCategoriesDom from "./DOM-for-loaded-category";
 
+export default function loadSavedCategories() {
 
-export default function loadSavedCategories(key) {
-
-    let display = document.getElementById('display');
-    
-    let category = document.createElement('div');
-    
-    category.id = key;
-    
-    let title = document.createElement('h2');
-    title.innerHTML = key;
-    
-    category.appendChild(title);
+    Object.keys(localStorage).forEach(item => {
+        if (item.includes('_category_')) {
+            generateCategoriesDom(JSON.parse(localStorage.getItem(item)));
             
-    display.appendChild(category);
+        } 
+    });
             
     
 };

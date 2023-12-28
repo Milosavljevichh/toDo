@@ -4,15 +4,7 @@ import loadSavedTodo from "./loadSavedTodo";
 export default function createDefaultCat(todo) {
     let display = document.getElementById('display');
 
-    Object.keys(localStorage).forEach(item => {
-        if (item.includes('_category_')) {
-            loadSavedCategories(JSON.parse(localStorage.getItem(item)));
-            
-        } 
-    });
-
-    
-    
+    loadSavedCategories();
     
     if (display.childElementCount > 0) {
         let category = document.createElement('div');

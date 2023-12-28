@@ -1,4 +1,4 @@
-import createDefaultCat from "./generateDefaultCategory";
+import completeTask from "./completeTask";
 
 export default function loadSavedTodo(item) {
     

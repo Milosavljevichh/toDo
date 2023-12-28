@@ -58,15 +58,16 @@ export default function createTodo(classTitle, classDesc, classDate, classPriori
     let editIco = document.createElement('img');
     editIco.src = 'imgs/edit.png';
 
-    completeBtn.addEventListener('click', ()=>{
-        completeTask(article);
-    })
-
+    
     editBtn.appendChild(editIco);
     completeBtn.appendChild(completeIco);
     iconContainer.append(completeBtn, editBtn);
     footer.append(displayDate, iconContainer);
     article.append(todoTitle, todoDescription, footer);
+    
+    completeBtn.addEventListener('click', ()=>{
+        completeTask(article, classTitle);
+    })
 
     return article;
 };

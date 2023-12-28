@@ -8,6 +8,6 @@ export default function checkChildren(category) {
     }
 
     if (display.children.length === 0) {
-        createDefaultCat()
+        createDefaultCat();
     }
 };
