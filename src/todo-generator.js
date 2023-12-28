@@ -22,8 +22,9 @@ export default function createTodo(classTitle, classDesc, classDate, classPriori
 
     const newTodo = new Todo(classTitle, classDesc, classDate, classPriority, nonEmptyCategory);
 
-    localStorage.setItem('_todo_'+classTitle, JSON.stringify(newTodo));
-
+    if (classTitle) {
+        localStorage.setItem('_todo_'+classTitle, JSON.stringify(newTodo));
+    }
 
     //DOM manipulation
     let article = document.createElement('article');

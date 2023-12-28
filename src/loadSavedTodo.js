@@ -37,7 +37,7 @@ export default function loadSavedTodo(item) {
             editIco.src = 'imgs/edit.png';
 
             completeBtn.addEventListener('click', ()=>{
-                completeTask(article);
+                completeTask(article, newTodo.title);
             })
 
             editBtn.appendChild(editIco);
