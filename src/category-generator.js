@@ -39,6 +39,7 @@ export default function createCategory(todoTitle, todoDescription, todoDueDate, 
             if (categoryTitle.length === 0) {
                 if (document.getElementById('overall')) {
                     let overall = document.getElementById('overall');
+                    localStorage.setItem('_category_'+overall.id,  JSON.stringify(overall.id));
                     overall.appendChild(todo);
                 } else {
                     createDefaultCat(todo);

@@ -246,6 +246,10 @@ aside {
     background-color: #EEF5FF;
 }
 
+#display div h2 {
+    text-transform: capitalize;
+}
+
 @media screen and (min-width: 921px) {
     #display {
         grid-template-columns: repeat(auto-fit, minmax(250px, 48%));

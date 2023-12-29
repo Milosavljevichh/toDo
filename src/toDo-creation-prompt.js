@@ -1,6 +1,6 @@
 import promptValidation from "./promptValidation";
 import createCategory from "./category-generator";
-import createTodo from "./todo-generator";
+import checkIfTaskExists from "./checkForExistingTask";
 import { isPast } from "date-fns";
 
 export default function generatePrompt() {
@@ -100,9 +100,13 @@ export default function generatePrompt() {
         let priorityValue = prioritySelect.value;
         let categoryValue = categoryInput.value;
         //logic
-        if (titleValue.length === 0 || descriptionValue.length === 0 || isPast(dueDateInput.value)) {
+        if (!titleValue || isPast(dueDateInput.value)) {
             promptValidation(titleValue, descriptionValue, titleInput, descriptionInput, dueDateInput, dueDateLabel);
-        } else {
+        }  else {
+            let doesNotExist = checkIfTaskExists(titleValue,titleInput);
+            console.log(doesNotExist)
+           
+            if (doesNotExist === true) {
             createCategory(titleValue, descriptionValue, dueDateValue, priorityValue, categoryValue);
             
             //removing background overlay
@@ -110,6 +114,7 @@ export default function generatePrompt() {
             root.style.setProperty('--wrapper-display', 'none');
             //passing args to the create category func
             wrapper.removeChild(prompt);
+        }
     }});
 
      let cancel = document.createElement('button');
