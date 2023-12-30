@@ -23,3 +23,14 @@
 6. Aside will have filter buttons for:
     -priority
     -due date
+
+
+
+
+when the button is clicked, it's selected state should be set to true. If it is selected, it should set the todo's display
+of other priorities to none. If it's clicked again (same btn, while selected) all priority todos should be visible.
+If other priority btn is clicked while another is selected, the selected btn should be unselected and clicked btns state
+should be set to selected.
+
+there should be a function for controlling btn state that is called on btn click.
+there should be a function that sets todo display, if selected state is active.

@@ -1,3 +1,4 @@
+import changePriorityState from "./changePriorityState";
 
 export default function generateAside() {
     let main = document.getElementById('main');
@@ -46,11 +47,51 @@ export default function generateAside() {
     mediumPriorityTitle.innerHTML = 'Mid';
     highPriorityTitle.innerHTML = 'High';
 
+    //adding functions to divs
+    let noneSelected = false;
+    let lowSelected = false;
+    let midSelected = false;
+    let highSelected = false;
+
+    noPriority.addEventListener('click', ()=>{
+        if (!noneSelected) {
+            noneSelected = true;
+        } else {
+            noneSelected = false;
+        };
+        changePriorityState(noPriorityTitle.innerHTML, noneSelected);
+    });
+    lowPriority.addEventListener('click', ()=>{
+        if (!lowSelected) {
+            lowSelected = true;
+        } else {
+            lowSelected = false;
+        };
+        changePriorityState(lowPriorityTitle.innerHTML, lowSelected);
+    });
+    mediumPriority.addEventListener('click', ()=>{
+        if (!midSelected) {
+            midSelected = true;
+        } else {
+            midSelected = false;
+        };
+        changePriorityState(mediumPriorityTitle.innerHTML, midSelected);
+    });
+    highPriority.addEventListener('click', ()=>{
+        if (!highSelected) {
+            highSelected = true;
+        } else {
+            highSelected = false;
+        };
+        changePriorityState(highPriorityTitle.innerHTML, highSelected);
+    });
+
     //appending children
     noPriority.append(noPriorityIco, noPriorityTitle);
     lowPriority.append(lowPriorityIco,lowPriorityTitle);
     mediumPriority.append(mediumPriorityIco,mediumPriorityTitle);
     highPriority.append(highPriorityIco,highPriorityTitle);
+
 
     prioritySection.append(sectionTitle,noPriority,lowPriority,mediumPriority,highPriority);
 

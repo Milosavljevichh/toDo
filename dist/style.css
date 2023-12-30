@@ -248,6 +248,9 @@ aside {
 
 #display div h2 {
     text-transform: capitalize;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 }
 
 @media screen and (min-width: 921px) {
@@ -478,7 +481,7 @@ content: "";
     border-left: var(--low-priority-bg-color);
 }
 
-.Medium {
+.Mid {
     border-left: var(--medium-priority-bg-color);
 }
 

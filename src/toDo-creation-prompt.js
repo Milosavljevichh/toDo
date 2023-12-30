@@ -73,7 +73,7 @@ export default function generatePrompt() {
     let low = document.createElement("option");
     low.text = "Low";
     let medium = document.createElement("option");
-    medium.text = "Medium";
+    medium.text = "Mid";
     let high = document.createElement("option");
     high.text = "High";
 
