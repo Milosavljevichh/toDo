@@ -90,12 +90,12 @@ header {
     height: 48px;
     background-color: none;
     border: none;
-    border-radius: 50%;
+    background-color: transparent;
     margin-right: 5%;
 }
 
 #addBtn img {
-    width: 48px;
+    width: 54px;
 }
 
 #addBtn:hover {

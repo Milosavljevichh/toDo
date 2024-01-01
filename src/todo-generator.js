@@ -1,4 +1,5 @@
 import completeTask from "./completeTask";
+import editTask from "./editTask";
 
 export default function createTodo(classTitle, classDesc, classDate, classPriority, categoryTitle) {
     
@@ -60,15 +61,22 @@ export default function createTodo(classTitle, classDesc, classDate, classPriori
     editIco.src = 'imgs/edit.png';
 
     
+    completeBtn.addEventListener('click', ()=>{
+        completeTask(article, classTitle);
+    });
+
+    editBtn.addEventListener('click', () => {
+        let root = document.querySelector(':root');
+        root.style.setProperty('--wrapper-display', 'block');
+        editTask(newTodo);
+    });
+
     editBtn.appendChild(editIco);
     completeBtn.appendChild(completeIco);
     iconContainer.append(completeBtn, editBtn);
     footer.append(displayDate, iconContainer);
     article.append(todoTitle, todoDescription, footer);
     
-    completeBtn.addEventListener('click', ()=>{
-        completeTask(article, classTitle);
-    })
 
     return article;
 };

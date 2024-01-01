@@ -1,4 +1,5 @@
 import changePriorityState from "./changePriorityState";
+import checkCatDisplay from "./checkCategorysDisplay";
 
 export default function generateAside() {
     let main = document.getElementById('main');
@@ -60,6 +61,7 @@ export default function generateAside() {
             noneSelected = false;
         };
         changePriorityState(noPriorityTitle.innerHTML, noneSelected);
+        checkCatDisplay();
     });
     lowPriority.addEventListener('click', ()=>{
         if (!lowSelected) {
@@ -68,6 +70,7 @@ export default function generateAside() {
             lowSelected = false;
         };
         changePriorityState(lowPriorityTitle.innerHTML, lowSelected);
+        checkCatDisplay();
     });
     mediumPriority.addEventListener('click', ()=>{
         if (!midSelected) {
@@ -76,6 +79,7 @@ export default function generateAside() {
             midSelected = false;
         };
         changePriorityState(mediumPriorityTitle.innerHTML, midSelected);
+        checkCatDisplay();
     });
     highPriority.addEventListener('click', ()=>{
         if (!highSelected) {
@@ -84,6 +88,7 @@ export default function generateAside() {
             highSelected = false;
         };
         changePriorityState(highPriorityTitle.innerHTML, highSelected);
+        checkCatDisplay();
     });
 
     //appending children
