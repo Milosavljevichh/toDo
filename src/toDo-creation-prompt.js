@@ -50,19 +50,36 @@ export default function generatePrompt() {
 
     dueDateLabel.innerHTML = "Due date:";
     dueDatenDiv.append(dueDateLabel, dueDateInput);
-    //priority
+    //category
     let categoryDiv = document.createElement('div');
     let categoryLabel = document.createElement('p');
     let categoryInput = document.createElement('input');
-
+    
     categoryInput.id = 'categorySelect';
     categoryInput.placeholder = 'Category name';
     categoryInput.type = 'text';
+    categoryInput.setAttribute('list', 'categoryList');
+    categoryInput.autocomplete = 'off';
+    //making category datalist
+    let catList = document.createElement('datalist');
+    catList.id = 'categoryList';
 
+    let display = document.getElementById('display');
+    let categories = display.childNodes;
+    categories.forEach(category => {
+        let categoryOption = document.createElement('option');
+        categoryOption.value = category.id;
+        categoryOption.innerHTML = category.id;
+        catList.appendChild(categoryOption);
+    });
+
+    categoryInput.appendChild(catList);
+
+    
     categoryLabel.innerHTML = "Input category:";
-
+    
     categoryDiv.append(categoryLabel, categoryInput);
-    //category
+    //priority
     let priorityDiv = document.createElement('div');
     let priorityLabel = document.createElement('p');
     let prioritySelect = document.createElement('select');
