@@ -1,6 +1,6 @@
 export default function checkCatDisplay() {
     let display = document.getElementById('display');
-    let allCategories = display.querySelectorAll('div');
+    let allCategories = display.childNodes;
     
     
     allCategories.forEach((category)=>{
