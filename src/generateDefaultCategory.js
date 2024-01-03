@@ -13,7 +13,7 @@ export default function createDefaultCat(todo) {
             let category = document.createElement('div');
             category.id = 'overall';
             let title = document.createElement('h2');
-            title.innerHTML = 'Overall';
+            title.innerHTML = 'overall';
             category.appendChild(title);
             category.appendChild(todo);
             localStorage.setItem('_category_'+category.id,  JSON.stringify(category.id));
@@ -23,7 +23,7 @@ export default function createDefaultCat(todo) {
         let category = document.createElement('div');
         category.id = 'overall';
         let title = document.createElement('h2');
-        title.innerHTML = 'Overall';
+        title.innerHTML = 'overall';
         category.appendChild(title);
         display.appendChild(category);
     }

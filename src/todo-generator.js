@@ -68,7 +68,14 @@ export default function createTodo(classTitle, classDesc, classDate, classPriori
     editBtn.addEventListener('click', () => {
         let root = document.querySelector(':root');
         root.style.setProperty('--wrapper-display', 'block');
-        editTask(newTodo);
+        if (classTitle) {
+            let editableTodo = JSON.parse(localStorage.getItem('_todo_'+classTitle));
+            editTask(editableTodo);
+        } else {
+            let todoNameThroughH3 = editBtn.parentElement.parentElement.parentElement.querySelector('h3').innerHTML;
+            let editableTodo = JSON.parse(localStorage.getItem('_todo_'+todoNameThroughH3));
+            editTask(editableTodo);
+        };
     });
 
     editBtn.appendChild(editIco);

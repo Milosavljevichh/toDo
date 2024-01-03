@@ -161,6 +161,16 @@ aside {
     border-right: solid #176B87 2.5px;
     padding: 30px 1% 30px 3%;
     background-color: #B4D4FF;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 1%;
+    background-color: transparent;
+}
+
+aside h2 {
+    text-align: center;
 }
 
 .asideSection, aside {
@@ -178,7 +188,6 @@ aside {
 
 .menu-item {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     gap: 15px;
     background-color: #86B6F6;
@@ -203,9 +212,20 @@ aside {
     font-weight: 500;
 }
 
+#this-week {
+    text-align: left;
+}
+
 @media screen and (max-width: 1087px) {
     .menu-item h3 {
         font-size: 1rem;
+    }
+
+}
+
+@media screen and (max-width:1348px) {
+    #this-week {
+        font-size: 0.8rem;
     }
 }
 

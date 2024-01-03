@@ -8,6 +8,6 @@ export default function completeTask(task, title) {
         let category = document.getElementById(task.parentElement.id);
         task.remove();
         checkChildren(category);
-        checkCatDisplay();
+        // checkCatDisplay();
     });
 };

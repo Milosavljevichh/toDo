@@ -5,7 +5,6 @@ export default function checkChildren(category) {
 
     if (category.children.length === 1) {
         localStorage.removeItem('_category_'+category.id);
-        console.log(category.id);
         category.remove();
     }
 

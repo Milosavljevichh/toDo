@@ -1,5 +1,6 @@
 import changePriorityState from "./changePriorityState";
 import checkCatDisplay from "./checkCategorysDisplay";
+import changeVisibilityByDate from "./changeVisibilityByDate";
 
 export default function generateAside() {
     let main = document.getElementById('main');
@@ -91,16 +92,57 @@ export default function generateAside() {
         checkCatDisplay();
     });
 
+    //creating due date section
+    let dueDateSection = document.createElement('div');
+    dueDateSection.classList.add('asideSection');
+
+    let dueDateTitle = document.createElement('h2');
+    dueDateTitle.innerHTML = 'Due date';
+
+    let noDueDate = document.createElement('div');
+    let dueThisWeek = document.createElement('div');
+    let dueToday = document.createElement('div');
+
+    noDueDate.classList.add('menu-item');
+    dueThisWeek.classList.add('menu-item');
+    dueToday.classList.add('menu-item');
+
+    let noDueDateIco = document.createElement('img');
+    let dueThisWeekIco = document.createElement('img');
+    let dueTodayIco = document.createElement('img');
+
+    noDueDateIco.src = 'imgs/noDueDate.png';
+    dueThisWeekIco.src = 'imgs/weekDueDate.png';
+    dueTodayIco.src = 'imgs/todayDueDate.png';
+
+    let noDueDateTitle = document.createElement('h3');
+    let dueThisWeekTitle = document.createElement('h3');
+    let dueTodayTitle = document.createElement('h3');
+
+    noDueDateTitle.innerHTML = 'None';
+    dueThisWeekTitle.innerHTML = 'This week';
+    dueThisWeek.id = 'this-week';
+    dueTodayTitle.innerHTML = 'Today';
+
+
+    noDueDate.addEventListener('click', ()=>{
+        changeVisibilityByDate();
+    })
+
     //appending children
     noPriority.append(noPriorityIco, noPriorityTitle);
     lowPriority.append(lowPriorityIco,lowPriorityTitle);
     mediumPriority.append(mediumPriorityIco,mediumPriorityTitle);
     highPriority.append(highPriorityIco,highPriorityTitle);
 
+    noDueDate.append(noDueDateIco, noDueDateTitle);
+    dueThisWeek.append(dueThisWeekIco, dueThisWeekTitle);
+    dueToday.append(dueTodayIco, dueTodayTitle);
 
     prioritySection.append(sectionTitle,noPriority,lowPriority,mediumPriority,highPriority);
+    dueDateSection.append(dueDateTitle, noDueDate, dueThisWeek, dueToday);
 
-    aside.appendChild(prioritySection);
+    aside.append(prioritySection, dueDateSection);
 
     main.appendChild(aside);
 };

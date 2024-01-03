@@ -84,7 +84,6 @@ export default function editTask(todo) {
     medium.text = "Mid";
     let high = document.createElement("option");
     high.text = "High";
-    console.log(todo.priority)
     switch(todo.priority) {
         case 'None':
             console.log('done')
