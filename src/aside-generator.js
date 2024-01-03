@@ -93,41 +93,57 @@ export default function generateAside() {
     });
 
     //creating due date section
-    let dueDateSection = document.createElement('div');
-    dueDateSection.classList.add('asideSection');
+    // let dueDateSection = document.createElement('div');
+    // dueDateSection.classList.add('asideSection');
 
-    let dueDateTitle = document.createElement('h2');
-    dueDateTitle.innerHTML = 'Due date';
+    // let dueDateTitle = document.createElement('h2');
+    // dueDateTitle.innerHTML = 'Due date';
 
-    let noDueDate = document.createElement('div');
-    let dueThisWeek = document.createElement('div');
-    let dueToday = document.createElement('div');
+    // let noDueDate = document.createElement('div');
+    // let dueThisWeek = document.createElement('div');
+    // let dueToday = document.createElement('div');
 
-    noDueDate.classList.add('menu-item');
-    dueThisWeek.classList.add('menu-item');
-    dueToday.classList.add('menu-item');
+    // noDueDate.classList.add('menu-item');
+    // dueThisWeek.classList.add('menu-item');
+    // dueToday.classList.add('menu-item');
 
-    let noDueDateIco = document.createElement('img');
-    let dueThisWeekIco = document.createElement('img');
-    let dueTodayIco = document.createElement('img');
+    // let noDueDateIco = document.createElement('img');
+    // let dueThisWeekIco = document.createElement('img');
+    // let dueTodayIco = document.createElement('img');
 
-    noDueDateIco.src = 'imgs/noDueDate.png';
-    dueThisWeekIco.src = 'imgs/weekDueDate.png';
-    dueTodayIco.src = 'imgs/todayDueDate.png';
+    // noDueDateIco.src = 'imgs/noDueDate.png';
+    // dueThisWeekIco.src = 'imgs/weekDueDate.png';
+    // dueTodayIco.src = 'imgs/todayDueDate.png';
 
-    let noDueDateTitle = document.createElement('h3');
-    let dueThisWeekTitle = document.createElement('h3');
-    let dueTodayTitle = document.createElement('h3');
+    // let noDueDateTitle = document.createElement('h3');
+    // let dueThisWeekTitle = document.createElement('h3');
+    // let dueTodayTitle = document.createElement('h3');
 
-    noDueDateTitle.innerHTML = 'None';
-    dueThisWeekTitle.innerHTML = 'This week';
-    dueThisWeek.id = 'this-week';
-    dueTodayTitle.innerHTML = 'Today';
+    // noDueDateTitle.innerHTML = 'None';
+    // dueThisWeekTitle.innerHTML = 'This week';
+    // dueThisWeek.id = 'this-week';
+    // dueTodayTitle.innerHTML = 'Today';
 
+    
+    // let noDateSelected = false;
+    // let thisWeekSelected = false;
 
-    noDueDate.addEventListener('click', ()=>{
-        changeVisibilityByDate();
-    })
+    // noDueDate.addEventListener('click', ()=>{
+    //     if (!noDateSelected) {
+    //         noDateSelected = true;
+    //     } else {
+    //         noDateSelected = false;
+    //     };
+    //     changeVisibilityByDate(noDateSelected);
+    // });
+    // dueThisWeek.addEventListener('click', ()=>{
+    //     if (!thisWeekSelected) {
+    //         thisWeekSelected = true;
+    //     } else {
+    //         thisWeekSelected = false;
+    //     };
+    //     changeVisibilityByDate(thisWeekSelected);
+    // })
 
     //appending children
     noPriority.append(noPriorityIco, noPriorityTitle);
@@ -135,14 +151,10 @@ export default function generateAside() {
     mediumPriority.append(mediumPriorityIco,mediumPriorityTitle);
     highPriority.append(highPriorityIco,highPriorityTitle);
 
-    noDueDate.append(noDueDateIco, noDueDateTitle);
-    dueThisWeek.append(dueThisWeekIco, dueThisWeekTitle);
-    dueToday.append(dueTodayIco, dueTodayTitle);
 
     prioritySection.append(sectionTitle,noPriority,lowPriority,mediumPriority,highPriority);
-    dueDateSection.append(dueDateTitle, noDueDate, dueThisWeek, dueToday);
 
-    aside.append(prioritySection, dueDateSection);
+    aside.append(prioritySection);
 
     main.appendChild(aside);
 };

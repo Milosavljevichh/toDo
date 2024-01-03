@@ -21,18 +21,20 @@ export default function changeTaskPropreties(newTitle, newDesc, newDate, newPrio
     let dueEelemnt = parentElement.querySelector('.todo-footer').querySelector('p');
     let catTitle = parentElement.parentElement.querySelector('h2').innerHTML;
     if (titleElement.innerHTML === oldTitle){
-        titleElement.innerHTML = newTitle;
-        descrElement.innerHTML = newDesc;
-        dueEelemnt.innerHTML = newDate;
+        titleElement.innerHTML = newTodo.title;
+        descrElement.innerHTML = newTodo.description;
+        dueEelemnt.innerHTML = newTodo.dueDate;
         createCategory(newTitle, newDesc, newDate, newPriority, newCat);
         if (parentElement.parentElement.children === 1) {
             console.log('delete')
         }
-        parentElement.parentElement.remove();
+        if (newTitle !== oldTitle) {
+            parentElement.parentElement.remove();
+            localStorage.removeItem('_category_'+catTitle);
+        }
         parentElement.remove();
         localStorage.removeItem('_todo_'+oldTitle);
         console.log(catTitle)
-        localStorage.removeItem('_category_'+catTitle);
         localStorage.setItem('_todo_'+newTitle, JSON.stringify(newTodo));
     }
 }
